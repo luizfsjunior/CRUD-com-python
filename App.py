@@ -1,16 +1,14 @@
 from tkinter import *
 from tkinter import ttk, messagebox
-
+from banco import *
 from view import *
 
 
 #Cores
-co0 = "#f0f3f5"  # Preta
+
 co1 = "#feffff"  # branca
 co2 = "#59c0f3"  # azul claro
-co3 = "#38576b"  # valor
 co4 = "#403d3d"   # letra
-co5 = "#e06636"   # - profit
 co6 = "#038cfc"   # azul
 co7 = "#ef5350"   # vermelha
 co8 = "#263238"   # + verde
@@ -18,6 +16,7 @@ co9 = "#d3d3d3"   # cinza claro
 
 
 #Janela
+cria_tabela()
 janela = Tk()
 janela.title('')
 janela.geometry("1035x720")
@@ -102,7 +101,7 @@ def atualizar_dados():
                 messagebox.showerror('Erro', 'O nome não pode ser vazio')
             else:
                 update(lista)
-                messagebox.showinfo('Sucesso', "Os dados foram atualizados com sucesso"+str(lista))
+                messagebox.showinfo('Sucesso', "Os dados foram atualizados com sucesso")
                 
                 e_titulo.delete(0,'end') 
                 e_desc.delete(0,'end') 
@@ -208,7 +207,6 @@ def mostrar():
 
     for col in cabecario:
         tree.heading(col, text=col.title(), anchor=CENTER)
-        # adjust the column's width to the header string
         tree.column(col, width=h[n],anchor=hd[n])
         
         n+=1
